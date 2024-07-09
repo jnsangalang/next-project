@@ -1,6 +1,4 @@
 import { AllClouds } from "./components/AllClouds";
-import { Clouds } from "./components/Clouds";
-import { ReverseClouds } from "./components/ReverseClouds";
 import "./globals.css";
 
 export default function Home() {
