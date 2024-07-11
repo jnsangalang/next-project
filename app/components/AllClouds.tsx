@@ -4,7 +4,14 @@ import { useEffect, useState } from "react";
 import { Clouds } from "./Clouds";
 import { ReverseClouds } from "./ReverseClouds";
 import { motion, useAnimation } from "framer-motion";
+import { Aleo, Courier_Prime } from "next/font/google";
 import "../globals.css";
+import { HomeButtons } from "./HomeButtons";
+
+export const courierPrime = Courier_Prime({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
 
 export function AllClouds() {
   const [scrollY, setScrollY] = useState(0);
@@ -26,7 +33,7 @@ export function AllClouds() {
     function handleCloud() {
       const scrollPosition = window.scrollY + window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
-      if (scrollPosition >= documentHeight * 0.6) {
+      if (scrollPosition >= documentHeight * 0.5) {
         cloud.start({
           x: -100,
           opacity: 0.3,
@@ -52,7 +59,7 @@ export function AllClouds() {
       const scrollPosition = window.scrollY + window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
 
-      if (scrollPosition >= documentHeight * 0.6) {
+      if (scrollPosition >= documentHeight * 0.5) {
         reverseCloud.start({
           x: 100,
           opacity: 0.3,
@@ -89,7 +96,6 @@ export function AllClouds() {
         transition: "background-color 2s",
       }}
     >
-      <div className="w-full h-[500px]"></div>
       <div className="relative flex flex-wrap w-full h-screen">
         <motion.div
           animate={cloud}
@@ -131,17 +137,18 @@ export function AllClouds() {
           className="flex items-center justify-center w-full h-screen  text-black"
           style={{ color: "rgba(41,62,80,1)" }}
         >
-          <h1 className="text-8xl courier-prime-bold">
+          <h1 className={`text-8xl font-bold ${courierPrime.className}`}>
             Johan Sangalang
             <div className="relative h-[100px]">
               {" "}
-              <h2 className="text-6xl courier-prime-bold absolute bottom-0">
+              <h2 className="text-6xl  absolute bottom-0">
                 Software Developer
               </h2>
             </div>
           </h1>
         </div>
       </div>
+      <HomeButtons />
       <div className="w-full h-[500px]"></div>
     </div>
   );
