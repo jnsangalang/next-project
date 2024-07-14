@@ -259,7 +259,10 @@ export function HomeButtons() {
         <motion.div
           className="w-1/4 lg:w-1/4 rounded "
           animate={leftTopButtonTogether}
-          style={{ backgroundColor: "rgb(249, 231, 231)" }}
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, rgb(25,10,10),rgb(249, 221, 231))",
+          }}
         >
           <Link href={"/about"}>
             <button
@@ -272,7 +275,10 @@ export function HomeButtons() {
         <motion.div
           className="w-1/4 lg:w-1/4 rounded"
           animate={rightTopButtonTogether}
-          style={{ backgroundColor: "rgb(249, 231, 231)" }}
+          style={{
+            backgroundImage:
+              "linear-gradient(to right,rgb(249, 221, 231), rgb(25,10,10))",
+          }}
         >
           <button
             className={`w-full text-sm lg:text-6xl  p-2 lg:p-10 flex justify-center items-center ${courierPrime.className}`}
@@ -285,7 +291,10 @@ export function HomeButtons() {
         <motion.div
           className="w-1/4 lg:w-1/4 rounded"
           animate={leftBottomButtonTogether}
-          style={{ backgroundColor: "rgb(249, 231, 231)" }}
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, rgb(25,10,10),rgb(249, 221, 231))",
+          }}
         >
           <button
             className={`w-full text-sm lg:text-6xl p-2 lg:p-10 flex justify-center items-center ${courierPrime.className}`}
@@ -296,7 +305,10 @@ export function HomeButtons() {
         <motion.div
           className="w-1/4 lg:w-1/4  rounded"
           animate={rightBottomButtonTogether}
-          style={{ backgroundColor: "rgb(249, 231, 231)" }}
+          style={{
+            backgroundImage:
+              "linear-gradient(to right,rgb(249, 221, 231), rgb(25,10,10))",
+          }}
         >
           <button
             className={`w-full text-sm lg:text-6xl p-2 lg:p-10 flex justify-center items-center ${courierPrime.className}`}
