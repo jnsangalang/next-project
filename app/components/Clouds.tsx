@@ -56,7 +56,13 @@ export function Clouds({ duration }: Clouds) {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <Image src="/images/cloud.webp" alt="cloud" width={1200} height={100} />
+        <Image
+          className="absolute"
+          src="/images/cloud.webp"
+          alt="cloud"
+          width={1200}
+          height={100}
+        />
       </motion.div>
     </motion.div>
   );

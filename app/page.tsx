@@ -1,5 +1,4 @@
 import { AllClouds } from "./components/AllClouds";
-import { HomeButtons } from "./components/HomeButtons";
 import "./globals.css";
 
 export default function Home() {

@@ -58,6 +58,7 @@ export function ReverseClouds({ duration }: ReverseClouds) {
         onMouseLeave={handleMouseLeave}
       >
         <Image
+          className="absolute"
           src="/images/cloud-reverse.png"
           alt="cloud"
           width={1200}
