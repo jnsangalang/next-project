@@ -4,7 +4,7 @@ import "./globals.css";
 
 export default function Home() {
   return (
-    <main className="flex flex-wrap items-center justify-between w-full">
+    <main className="w-full">
       <Transition>
         <div className="flex flex-wrap w-full h-screen ">
           <AllClouds />

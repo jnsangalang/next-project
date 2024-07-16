@@ -44,7 +44,7 @@ export function AllClouds() {
     function handleCloud() {
       const scrollPosition = window.scrollY + window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
-      if (scrollPosition >= documentHeight * 0.35) {
+      if (scrollPosition >= documentHeight * 0.4) {
         cloud.start({
           x: -100,
           opacity: 0.3,
@@ -72,7 +72,7 @@ export function AllClouds() {
       const scrollPosition = window.scrollY + window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
 
-      if (scrollPosition >= documentHeight * 0.35) {
+      if (scrollPosition >= documentHeight * 0.4) {
         reverseCloud.start({
           x: 100,
           opacity: 0.3,
