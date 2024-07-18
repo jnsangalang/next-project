@@ -39,46 +39,20 @@ export function AllClouds() {
   }, []);
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
     if (isMobile) return;
-    function handleCloud() {
-      const scrollPosition = window.scrollY + window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-      if (scrollPosition >= documentHeight * 0.4) {
-        cloud.start({
-          x: -100,
-          opacity: 0.3,
-          transition: { duration: 1.5 },
-        });
-      } else {
-        cloud.start({
-          x: 0,
-          opacity: 1,
-          transition: { duration: 1 },
-        });
-      }
-    }
-    handleCloud();
-    window.addEventListener("scroll", handleCloud);
-    return () => {
-      window.removeEventListener("scroll", handleCloud);
-    };
-  }, [cloud, isMobile]);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (isMobile) return;
-    function handleReverseCloud() {
+    function handleAllClouds() {
       const scrollPosition = window.scrollY + window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
 
-      if (scrollPosition >= documentHeight * 0.4) {
+      if (scrollPosition >= documentHeight * 0.42) {
+        cloud.start({ x: -100, opacity: 0.3, transition: { duration: 1 } });
         reverseCloud.start({
           x: 100,
           opacity: 0.3,
           transition: { duration: 1.5 },
         });
       } else {
+        cloud.start({ x: 0, opacity: 1, transition: { duration: 1 } });
         reverseCloud.start({
           x: 0,
           opacity: 1,
@@ -86,54 +60,23 @@ export function AllClouds() {
         });
       }
     }
-    handleReverseCloud();
-    window.addEventListener("scroll", handleReverseCloud);
-    return () => {
-      window.removeEventListener("scroll", handleReverseCloud);
-    };
-  }, [reverseCloud, isMobile]);
+    handleAllClouds();
+    window.addEventListener("scroll", handleAllClouds);
+    return () => window.removeEventListener("scroll", handleAllClouds);
+  }, [cloud, reverseCloud, isMobile]);
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
     if (!isMobile) return;
-    function handleCloud() {
-      const scrollPosition = window.scrollY + window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-      if (scrollPosition >= documentHeight * 0.67) {
-        cloud.start({
-          x: -20,
-          opacity: 0.3,
-          transition: { duration: 1.5 },
-        });
-      } else {
-        cloud.start({
-          x: 0,
-          opacity: 1,
-          transition: { duration: 1 },
-        });
-      }
-    }
-    handleCloud();
-    window.addEventListener("scroll", handleCloud);
-    return () => {
-      window.removeEventListener("scroll", handleCloud);
-    };
-  }, [cloud, isMobile]);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (!isMobile) return;
-    function handleReverseCloud() {
-      const scrollPosition = window.scrollY + window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-
-      if (scrollPosition >= documentHeight * 0.67) {
+    function handleAllClouds() {
+      if (window.scrollY !== 0) {
+        cloud.start({ x: -20, opacity: 0.3, transition: { duration: 1.5 } });
         reverseCloud.start({
           x: 20,
           opacity: 0.3,
           transition: { duration: 1.5 },
         });
       } else {
+        cloud.start({ x: 0, opacity: 1, transition: { duration: 1 } });
         reverseCloud.start({
           x: 0,
           opacity: 1,
@@ -141,12 +84,12 @@ export function AllClouds() {
         });
       }
     }
-    handleReverseCloud();
-    window.addEventListener("scroll", handleReverseCloud);
+    handleAllClouds();
+    window.addEventListener("scroll", handleAllClouds);
     return () => {
-      window.removeEventListener("scroll", handleReverseCloud);
+      window.removeEventListener("scroll", handleAllClouds);
     };
-  }, [reverseCloud, isMobile]);
+  }, [cloud, reverseCloud, isMobile]);
 
   function adjustBackgroundColor() {
     if (!isMobile) {
@@ -216,9 +159,9 @@ export function AllClouds() {
           </h1>
         </div>
       </div>
-      <div className="h-[100px] lg:h-[250px]"></div>
+      <div className="h-[0] lg:h-[250px]"></div>
       <HomeButtons />
-      <div className="w-full h-[300px] lg:h-[500px]"></div>
+      <div className="w-full h-[400px] lg:h-[500px]"></div>
     </div>
   );
 }

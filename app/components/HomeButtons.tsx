@@ -19,7 +19,6 @@ export function HomeButtons() {
   const isMobile = width < 768;
 
   useEffect(() => {
-    // if (typeof window === "undefined") return;
     function handleScroll() {
       setScrollY(window.scrollY);
     }
@@ -30,228 +29,130 @@ export function HomeButtons() {
   }, []);
 
   useEffect(() => {
-    // if (typeof window === "undefined") return;
     if (isMobile) return;
-    function handleLeftTopButtonTogether() {
+    function handleAllButtons() {
       const scrollPosition = window.scrollY + window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
 
-      if (scrollPosition >= documentHeight * 0.6) {
+      if (
+        scrollPosition >= documentHeight * 0.7 &&
+        scrollPosition < documentHeight * 0.9
+      ) {
         leftTopButtonTogether.start({
-          x: 150,
-          y: 75,
-          transition: { duration: 0.75 },
+          x: 200,
+          y: 50,
+          transition: { duration: 0.5 },
+        });
+        rightTopButtonTogether.start({
+          x: -200,
+          y: 50,
+          transition: { duration: 0.5 },
+        });
+        leftBottomButtonTogether.start({
+          x: 200,
+          y: -50,
+          transition: { duration: 0.5 },
+        });
+        rightBottomButtonTogether.start({
+          x: -200,
+          y: -50,
+          transition: { duration: 0.5 },
         });
       } else {
         leftTopButtonTogether.start({
           x: 0,
           y: 0,
-          transition: { duration: 1 },
+          transition: { duration: 0.5 },
         });
-      }
-    }
-    handleLeftTopButtonTogether();
-    window.addEventListener("scroll", handleLeftTopButtonTogether);
-    return () => {
-      window.removeEventListener("scroll", handleLeftTopButtonTogether);
-    };
-  }, [leftTopButtonTogether, isMobile]);
-
-  useEffect(() => {
-    // if (typeof window === "undefined") return;
-    if (isMobile) return;
-    function handleRightTopButtonTogether() {
-      const scrollPosition = window.scrollY + window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-
-      if (scrollPosition >= documentHeight * 0.6) {
-        rightTopButtonTogether.start({
-          x: -150,
-          y: 75,
-          transition: { duration: 0.75 },
-        });
-      } else {
         rightTopButtonTogether.start({
           x: 0,
           y: 0,
-          transition: { duration: 1 },
+          transition: { duration: 0.5 },
         });
-      }
-    }
-    handleRightTopButtonTogether();
-    window.addEventListener("scroll", handleRightTopButtonTogether);
-    return () => {
-      window.removeEventListener("scroll", handleRightTopButtonTogether);
-    };
-  }, [rightTopButtonTogether, isMobile]);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (isMobile) return;
-    function handleLeftBottomButtonTogether() {
-      const scrollPosition = window.scrollY + window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-
-      if (scrollPosition >= documentHeight * 0.6) {
-        leftBottomButtonTogether.start({
-          x: 150,
-          y: -75,
-          transition: { duration: 0.75 },
-        });
-      } else {
         leftBottomButtonTogether.start({
           x: 0,
           y: 0,
-          transition: { duration: 1 },
+          transition: { duration: 0.5 },
         });
-      }
-    }
-    handleLeftBottomButtonTogether();
-    window.addEventListener("scroll", handleLeftBottomButtonTogether);
-    return () => {
-      window.removeEventListener("scroll", handleLeftBottomButtonTogether);
-    };
-  }, [leftBottomButtonTogether, isMobile]);
-
-  useEffect(() => {
-    // if (typeof window === "undefined") return;
-    if (isMobile) return;
-    function handleRightBottomButtonTogether() {
-      const scrollPosition = window.scrollY + window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-
-      if (scrollPosition >= documentHeight * 0.6) {
-        rightBottomButtonTogether.start({
-          x: -150,
-          y: -75,
-          transition: { duration: 0.75 },
-        });
-      } else {
         rightBottomButtonTogether.start({
           x: 0,
           y: 0,
-          transition: { duration: 1 },
+          transition: { duration: 0.5 },
         });
       }
     }
-    handleRightBottomButtonTogether();
-    window.addEventListener("scroll", handleRightBottomButtonTogether);
+    handleAllButtons();
+    window.addEventListener("scroll", handleAllButtons);
     return () => {
-      window.removeEventListener("scroll", handleRightBottomButtonTogether);
+      window.removeEventListener("scroll", handleAllButtons);
     };
-  }, [rightBottomButtonTogether, isMobile]);
+  }, [
+    leftTopButtonTogether,
+    rightTopButtonTogether,
+    leftBottomButtonTogether,
+    rightBottomButtonTogether,
+    isMobile,
+  ]);
 
   useEffect(() => {
-    // if (typeof window === "undefined") return;
     if (!isMobile) return;
-    function handleLeftTopButtonTogether() {
-      const scrollPosition = window.scrollY + window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-
-      if (scrollPosition >= documentHeight * 0.7) {
+    function handleAllButtons() {
+      if (window.scrollY !== 0) {
         leftTopButtonTogether.start({
-          x: 27,
+          x: 32,
           y: 10,
-          transition: { duration: 0.75 },
+          transition: { duration: 0.5 },
+        });
+        rightTopButtonTogether.start({
+          x: -32,
+          y: 10,
+          transition: { duration: 0.5 },
+        });
+        leftBottomButtonTogether.start({
+          x: 32,
+          y: -10,
+          transition: { duration: 0.5 },
+        });
+        rightBottomButtonTogether.start({
+          x: -32,
+          y: -10,
+          transition: { duration: 0.5 },
         });
       } else {
         leftTopButtonTogether.start({
           x: 0,
           y: 0,
-          transition: { duration: 1 },
+          transition: { duration: 0.5 },
         });
-      }
-    }
-    handleLeftTopButtonTogether();
-    window.addEventListener("scroll", handleLeftTopButtonTogether);
-    return () => {
-      window.removeEventListener("scroll", handleLeftTopButtonTogether);
-    };
-  }, [leftTopButtonTogether, isMobile]);
-
-  useEffect(() => {
-    // if (typeof window === "undefined") return;
-    if (!isMobile) return;
-    function handleRightTopButtonTogether() {
-      const scrollPosition = window.scrollY + window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-
-      if (scrollPosition >= documentHeight * 0.7) {
-        rightTopButtonTogether.start({
-          x: -27,
-          y: 10,
-          transition: { duration: 0.75 },
-        });
-      } else {
         rightTopButtonTogether.start({
           x: 0,
           y: 0,
-          transition: { duration: 1 },
+          transition: { duration: 0.5 },
         });
-      }
-    }
-    handleRightTopButtonTogether();
-    window.addEventListener("scroll", handleRightTopButtonTogether);
-    return () => {
-      window.removeEventListener("scroll", handleRightTopButtonTogether);
-    };
-  }, [rightTopButtonTogether, isMobile]);
-
-  useEffect(() => {
-    // if (typeof window === "undefined") return;
-    if (!isMobile) return;
-    function handleLeftBottomButtonTogether() {
-      const scrollPosition = window.scrollY + window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-
-      if (scrollPosition >= documentHeight * 0.7) {
-        leftBottomButtonTogether.start({
-          x: 27,
-          y: -10,
-          transition: { duration: 0.75 },
-        });
-      } else {
         leftBottomButtonTogether.start({
           x: 0,
           y: 0,
-          transition: { duration: 1 },
+          transition: { duration: 0.5 },
         });
-      }
-    }
-    handleLeftBottomButtonTogether();
-    window.addEventListener("scroll", handleLeftBottomButtonTogether);
-    return () => {
-      window.removeEventListener("scroll", handleLeftBottomButtonTogether);
-    };
-  }, [leftBottomButtonTogether, isMobile]);
-
-  useEffect(() => {
-    // if (typeof window === "undefined") return;
-    if (!isMobile) return;
-    function handleRightBottomButtonTogether() {
-      const scrollPosition = window.scrollY + window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-
-      if (scrollPosition >= documentHeight * 0.7) {
-        rightBottomButtonTogether.start({
-          x: -27,
-          y: -10,
-          transition: { duration: 0.75 },
-        });
-      } else {
         rightBottomButtonTogether.start({
           x: 0,
           y: 0,
-          transition: { duration: 1 },
+          transition: { duration: 0.5 },
         });
       }
     }
-    handleRightBottomButtonTogether();
-    window.addEventListener("scroll", handleRightBottomButtonTogether);
+    handleAllButtons();
+    window.addEventListener("scroll", handleAllButtons);
     return () => {
-      window.removeEventListener("scroll", handleRightBottomButtonTogether);
+      window.removeEventListener("scroll", handleAllButtons);
     };
-  }, [rightBottomButtonTogether, isMobile]);
+  }, [
+    leftTopButtonTogether,
+    rightTopButtonTogether,
+    leftBottomButtonTogether,
+    rightBottomButtonTogether,
+    isMobile,
+  ]);
 
   return (
     <div className="w-full flex flex-wrap">

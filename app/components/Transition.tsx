@@ -13,7 +13,7 @@ export function Transition({ children }: TransitionProps) {
       exit={{ x: 300, opacity: 0 }}
       transition={{
         type: "spring",
-        stiffness: 260,
+        stiffness: 75,
         damping: 20,
       }}
     >
